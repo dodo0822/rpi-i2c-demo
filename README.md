@@ -1,24 +1,13 @@
 # RPi I2C demo
 ## Installation
-### ADXL345 reader (Python)
+### Python programs
 Install the required library.
 ```
 sudo apt-get install python-smbus
 ```
 
-### ADXL345 reader (C)
+### C programs
 Compile the program.
 ```
 make
-```
-
-## Running
-### ADXL345 reader (Python)
-```
-python adxl345.py
-```
-
-### ADXL345 reader (C)
-```
-./adxl345
 ```
