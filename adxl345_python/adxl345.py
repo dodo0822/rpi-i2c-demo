@@ -65,9 +65,9 @@ print('Setup complete')
 try:
     while True:
         data = bus.read_i2c_block_data(address, DATAX0, 6)
-        x = (data[0] << 8) + data[1]
-        y = (data[2] << 8) + data[3]
-        z = (data[4] << 8) + data[5]
+        x = (data[1] << 8) + data[0]
+        y = (data[3] << 8) + data[2]
+        z = (data[5] << 8) + data[4]
         if x >= 1<<15: x -= 1<<16
         if y >= 1<<15: y -= 1<<16
         if z >= 1<<15: z -= 1<<16
@@ -76,6 +76,8 @@ try:
         z *= G_UNIT
         sys.stdout.write('\r{0:10.4f} {1:10.4f} {2:10.4f}'.format(x, y, z))
         sys.stdout.flush()
+        # 200 Hz
+        time.sleep(0.005)
 
 except KeyboardInterrupt:
     print('\nInterrupt signal received')
